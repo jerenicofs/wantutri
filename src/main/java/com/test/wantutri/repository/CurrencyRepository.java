@@ -2,7 +2,8 @@ package com.test.wantutri.repository;
 
 import com.test.wantutri.model.Currency;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-
-public interface CurrencyRepository extends JpaRepository<Currency, Long> {
+@Repository
+public interface CurrencyRepository extends JpaRepository<Currency, String> {
 }

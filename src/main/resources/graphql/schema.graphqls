@@ -1,13 +1,13 @@
 type Query{
-    transaction(id: ID!): ForexTransaction
+    transaction(id: ID!): Deals
 
-    listTransaction(currencyCode: String): [ForexTransaction!]
+    listTransaction(currencyCode: String): [Deals!]
 
     currencies: [Currency!]
 }
 
 type Mutation{
-    executeTransaction(input: TransactionInput!): ForexTransaction
+    executeTransaction(input: TransactionInput!): Deals
 }
 
 type Currency{
@@ -15,14 +15,15 @@ type Currency{
     name: String!
 }
 
-type ForexTransaction{
+type Deals{
     id: ID!
     fromCurrency: Currency!
     toCurrency: Currency!
     amountSold: Float!
     amountBought: Float!
     exchangeRate: Float!
-    timeStamp: String!
+    interfaceDate: String!
+    pairsShortName: String!
 }
 
 input TransactionInput{
