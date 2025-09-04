@@ -1,0 +1,32 @@
+type Query{
+    transaction(id: ID!): ForexTransaction
+
+    listTransaction(currencyCode: String): [ForexTransaction!]
+
+    currencies: [Currency!]
+}
+
+type Mutation{
+    executeTransaction(input: TransactionInput!): ForexTransaction
+}
+
+type Currency{
+    code: ID!
+    name: String!
+}
+
+type ForexTransaction{
+    id: ID!
+    fromCurrency: Currency!
+    toCurrency: Currency!
+    amountSold: Float!
+    amountBought: Float!
+    exchangeRate: Float!
+    timeStamp: String!
+}
+
+input TransactionInput{
+    fromCurrencyCode: ID!
+    toCurrencyCode: ID!
+    amount: Float!
+}
